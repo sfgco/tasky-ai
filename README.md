@@ -66,32 +66,32 @@ Node.js 22 is used by the development and production Dockerfiles. A local Node.j
 
 1. Clone the repository and enter the project directory:
 
-	```bash
-	git clone https://github.com/sfgco/tasky-ai.git
-	cd tasky-ai
-	```
+   ```bash
+   git clone https://github.com/sfgco/tasky-ai.git
+   cd tasky-ai
+   ```
 
 2. Create a local environment file:
 
-	```bash
-	cp .env.example .env
-	```
+   ```bash
+   cp .env.example .env
+   ```
 
 3. Replace the example authentication and encryption values with secure values:
 
-	```bash
-	openssl rand -base64 32
-	openssl rand -base64 32
-	openssl rand -hex 32
-	```
+   ```bash
+   openssl rand -base64 32
+   openssl rand -base64 32
+   openssl rand -hex 32
+   ```
 
-	Use the generated values for `JWT_SECRET`, `JWT_REFRESH_SECRET`, and `ENCRYPTION_KEY` in `.env`.
+   Use the generated values for `JWT_SECRET`, `JWT_REFRESH_SECRET`, and `ENCRYPTION_KEY` in `.env`.
 
 4. Start the development stack:
 
-	```bash
-	docker compose -f docker-compose.dev.yml up --build
-	```
+   ```bash
+   docker compose -f docker-compose.dev.yml up --build
+   ```
 
 5. Open the application at [http://localhost:3001](http://localhost:3001). The API is available at [http://localhost:3000](http://localhost:3000), and the health endpoint is [http://localhost:3000/api/health](http://localhost:3000/api/health).
 
@@ -116,30 +116,30 @@ The production compose file builds the optimized image and exposes the applicati
 
 1. Create and edit the environment file:
 
-	```bash
-	cp .env.example .env
-	```
+   ```bash
+   cp .env.example .env
+   ```
 
 2. Set strong, unique values for at least these variables:
 
-	```dotenv
-	JWT_SECRET=replace-with-a-long-random-value
-	JWT_REFRESH_SECRET=replace-with-a-different-long-random-value
-	ENCRYPTION_KEY=replace-with-a-64-character-hex-value
-	```
+   ```dotenv
+   JWT_SECRET=replace-with-a-long-random-value
+   JWT_REFRESH_SECRET=replace-with-a-different-long-random-value
+   ENCRYPTION_KEY=replace-with-a-64-character-hex-value
+   ```
 
 3. Build and start the production stack:
 
-	```bash
-	docker compose --env-file .env -f docker-compose.prod.yml up -d --build
-	```
+   ```bash
+   docker compose --env-file .env -f docker-compose.prod.yml up -d --build
+   ```
 
 4. Check the service and view logs:
 
-	```bash
-	docker compose --env-file .env -f docker-compose.prod.yml ps
-	docker compose --env-file .env -f docker-compose.prod.yml logs -f app
-	```
+   ```bash
+   docker compose --env-file .env -f docker-compose.prod.yml ps
+   docker compose --env-file .env -f docker-compose.prod.yml logs -f app
+   ```
 
 5. Open [http://localhost:3000](http://localhost:3000).
 
@@ -149,22 +149,22 @@ For a public deployment, put the application behind HTTPS and a reverse proxy, s
 
 `.env.example` contains the complete configuration reference. The most important settings are:
 
-| Variable | Purpose | Default |
-| --- | --- | --- |
-| `DATABASE_URL` | PostgreSQL connection string | Local PostgreSQL URL |
-| `REDIS_HOST` / `REDIS_PORT` | Redis connection | `localhost` / `6379` |
-| `JWT_SECRET` | Access-token signing secret | Required for production |
-| `JWT_REFRESH_SECRET` | Refresh-token signing secret | Required for production |
-| `ENCRYPTION_KEY` | Encryption key for sensitive values | Required for production |
-| `FRONTEND_URL` | Frontend origin used by the backend | `http://localhost:3001` |
-| `CORS_ORIGIN` | Allowed browser origin | `http://localhost:3001` |
-| `NEXT_PUBLIC_API_BASE_URL` | API URL used by the frontend | `http://localhost:3000/api` |
-| `UPLOAD_DEST` | Local upload directory | `./uploads` |
-| `MAX_FILE_SIZE` | Maximum upload size in bytes | `10485760` |
-| `SMTP_HOST` / `SMTP_PORT` | Outbound email server | Optional |
-| `AWS_*` | Optional S3-compatible file storage | Optional |
-| `AI_ALLOWED_HOSTS` | Allowed AI endpoint hostnames | Any public host |
-| `AI_ALLOW_PRIVATE_ENDPOINTS` | Allow private-network AI endpoints | `false` |
+| Variable                     | Purpose                             | Default                     |
+| ---------------------------- | ----------------------------------- | --------------------------- |
+| `DATABASE_URL`               | PostgreSQL connection string        | Local PostgreSQL URL        |
+| `REDIS_HOST` / `REDIS_PORT`  | Redis connection                    | `localhost` / `6379`        |
+| `JWT_SECRET`                 | Access-token signing secret         | Required for production     |
+| `JWT_REFRESH_SECRET`         | Refresh-token signing secret        | Required for production     |
+| `ENCRYPTION_KEY`             | Encryption key for sensitive values | Required for production     |
+| `FRONTEND_URL`               | Frontend origin used by the backend | `http://localhost:3001`     |
+| `CORS_ORIGIN`                | Allowed browser origin              | `http://localhost:3001`     |
+| `NEXT_PUBLIC_API_BASE_URL`   | API URL used by the frontend        | `http://localhost:3000/api` |
+| `UPLOAD_DEST`                | Local upload directory              | `./uploads`                 |
+| `MAX_FILE_SIZE`              | Maximum upload size in bytes        | `10485760`                  |
+| `SMTP_HOST` / `SMTP_PORT`    | Outbound email server               | Optional                    |
+| `AWS_*`                      | Optional S3-compatible file storage | Optional                    |
+| `AI_ALLOWED_HOSTS`           | Allowed AI endpoint hostnames       | Any public host             |
+| `AI_ALLOW_PRIVATE_ENDPOINTS` | Allow private-network AI endpoints  | `false`                     |
 
 When using Docker Compose, the compose files override `DATABASE_URL` and `REDIS_HOST` with the internal service names `postgres` and `redis`. Keep the Docker-specific values in the compose files and use `.env` for secrets and deployment-specific settings.
 
