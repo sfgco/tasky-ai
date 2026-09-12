@@ -50,7 +50,7 @@ services:
     image: postgres:16
     environment:
       POSTGRES_USER: tasky
-      POSTGRES_PASSWORD: taskosaur_password_change_this
+      POSTGRES_PASSWORD: tasky_password_change_this
       POSTGRES_DB: tasky
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -86,7 +86,7 @@ services:
       NODE_ENV: production
 
       # Database Configuration
-      DATABASE_URL: postgresql://tasky:taskosaur_password_change_this@postgres:5432/tasky
+      DATABASE_URL: postgresql://tasky:tasky_password_change_this@postgres:5432/tasky
 
       # Redis Configuration
       REDIS_HOST: redis
