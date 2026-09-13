@@ -51,7 +51,7 @@ export class EmailProcessor implements OnModuleInit {
 
       // Get configuration from QueueConfigService to ensure worker matches queue settings
       const bullMqConfig = this.queueConfigService.getBullMQConfig();
-      const queuePrefix = bullMqConfig?.prefix || 'taskosaur';
+      const queuePrefix = bullMqConfig?.prefix || 'tasky';
       const queueConnection = bullMqConfig?.connection;
 
       if (!queueConnection) {
@@ -159,7 +159,7 @@ export class EmailProcessor implements OnModuleInit {
 
   async handleSendEmail(job: IJob<EmailJobData>) {
     const { to, subject, template, data } = job.data;
-    const smtpFrom = await this.getSmtpConfig('smtp_from', 'SMTP_FROM', 'noreply@taskosaur.com');
+    const smtpFrom = await this.getSmtpConfig('smtp_from', 'SMTP_FROM', 'noreply@tasky.com');
 
     this.logger.debug(`Processing email job for ${to} using template ${template}`);
 
@@ -248,7 +248,7 @@ export class EmailProcessor implements OnModuleInit {
               </div>
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -271,7 +271,7 @@ export class EmailProcessor implements OnModuleInit {
               </div>
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -294,7 +294,7 @@ export class EmailProcessor implements OnModuleInit {
               </div>
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -337,7 +337,7 @@ export class EmailProcessor implements OnModuleInit {
               }
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -347,7 +347,7 @@ export class EmailProcessor implements OnModuleInit {
         bodyContent = `
           <div class="container">
             <div class="content">
-              <p>A password reset has been requested for your Taskosaur account.</p>
+              <p>A password reset has been requested for your tasky account.</p>
               
               <div class="task-info">
                 <p>Click the button below to reset your password.</p>
@@ -363,7 +363,7 @@ export class EmailProcessor implements OnModuleInit {
               </div>
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -373,7 +373,7 @@ export class EmailProcessor implements OnModuleInit {
         bodyContent = `
         <div class="container">
           <div class="content">
-            <p>Your Taskosaur account password has been successfully reset.</p>
+            <p>Your tasky account password has been successfully reset.</p>
             
             <div class="task-info">
               <p><strong>Reset completed:</strong> ${data.resetTime}</p>
@@ -385,11 +385,11 @@ export class EmailProcessor implements OnModuleInit {
             </div>
             
             <div class="info-section">
-              <p>If you didn't authorize this change, contact support immediately at ${data.supportEmail || 'support@taskosaur.com'}</p>
+              <p>If you didn't authorize this change, contact support immediately at ${data.supportEmail || 'support@tasky.com'}</p>
             </div>
           </div>
           <div class="footer">
-            <p>Taskosaur - Modern Project Management</p>
+            <p>tasky - Modern Project Management</p>
           </div>
         </div>
       `;
@@ -403,7 +403,7 @@ export class EmailProcessor implements OnModuleInit {
 
             <p style="font-size:15px;color:#1d1d1f;margin:0 0 16px;">
               <strong>${data.inviterName}</strong> has invited you to join
-              <strong>${data.entityName}</strong> on Taskosaur as a <strong>${data.role}</strong>.
+              <strong>${data.entityName}</strong> on tasky as a <strong>${data.role}</strong>.
             </p>
 
             <p style="font-size:15px;color:#1d1d1f;margin:0 0 28px;">
@@ -421,7 +421,7 @@ export class EmailProcessor implements OnModuleInit {
             <div style="border-top:1px solid #d2d2d7;margin:32px 0 20px;"></div>
 
             <p style="font-size:12px;color:#86868b;margin:0;">
-              Taskosaur &mdash; Project Management
+              tasky &mdash; Project Management
             </p>
           </div>
         </div>
@@ -450,7 +450,7 @@ export class EmailProcessor implements OnModuleInit {
             <div style="border-top:1px solid #d2d2d7;margin:32px 0 20px;"></div>
 
             <p style="font-size:12px;color:#86868b;margin:0;">
-              Taskosaur &mdash; Project Management
+              tasky &mdash; Project Management
             </p>
           </div>
         </div>
@@ -476,7 +476,7 @@ export class EmailProcessor implements OnModuleInit {
             </div>
           </div>
           <div class="footer">
-            <p>Taskosaur - Modern Project Management</p>
+            <p>tasky - Modern Project Management</p>
           </div>
         </div>
       `;
@@ -501,7 +501,7 @@ export class EmailProcessor implements OnModuleInit {
             </div>
           </div>
           <div class="footer">
-            <p>Taskosaur - Modern Project Management</p>
+            <p>tasky - Modern Project Management</p>
           </div>
         </div>
       `;
@@ -525,7 +525,7 @@ export class EmailProcessor implements OnModuleInit {
             </div>
           </div>
           <div class="footer">
-            <p>Taskosaur - Modern Project Management</p>
+            <p>tasky - Modern Project Management</p>
           </div>
         </div>
       `;
@@ -549,7 +549,7 @@ export class EmailProcessor implements OnModuleInit {
               </div>
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -574,7 +574,7 @@ export class EmailProcessor implements OnModuleInit {
               </div>
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -599,7 +599,7 @@ export class EmailProcessor implements OnModuleInit {
               </div>
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -609,7 +609,7 @@ export class EmailProcessor implements OnModuleInit {
         bodyContent = `
           <div class="container">
             <div class="content">
-              <p>You've been invited to join a workspace on Taskosaur.</p>
+              <p>You've been invited to join a workspace on tasky.</p>
               
               <div class="task-info">
                 <p><strong>Workspace:</strong> ${data.entityName || 'Workspace'}</p>
@@ -622,7 +622,7 @@ export class EmailProcessor implements OnModuleInit {
               </div>
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -646,7 +646,7 @@ export class EmailProcessor implements OnModuleInit {
               </div>
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -673,7 +673,7 @@ export class EmailProcessor implements OnModuleInit {
               }
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -683,11 +683,11 @@ export class EmailProcessor implements OnModuleInit {
         bodyContent = `
           <div class="container">
             <div class="content">
-              <p>You have received a new notification from Taskosaur.</p>
+              <p>You have received a new notification from tasky.</p>
               <pre>${JSON.stringify(data, null, 2)}</pre>
             </div>
             <div class="footer">
-              <p>Taskosaur - Modern Project Management</p>
+              <p>tasky - Modern Project Management</p>
             </div>
           </div>
         `;
@@ -698,7 +698,7 @@ export class EmailProcessor implements OnModuleInit {
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <title>Taskosaur - ${template}</title>
+      <title>tasky - ${template}</title>
       ${baseStyles}
     </head>
     <body>
@@ -730,7 +730,7 @@ View task: ${data.taskUrl}
 Happy coding! 🚀
 
 --
-Taskosaur - Modern Project Management
+tasky - Modern Project Management
         `;
 
       case EmailTemplate.DUE_DATE_REMINDER:
@@ -751,16 +751,16 @@ View task: ${data.taskUrl}
 Don't let it slip! ⚡
 
 --
-Taskosaur - Modern Project Management
+tasky - Modern Project Management
         `;
 
       case EmailTemplate.PASSWORD_RESET:
         return `
-Reset Your Taskosaur Password
+Reset Your tasky Password
 
 Hi ${data.userName}!
 
-We received a request to reset your Taskosaur account password.
+We received a request to reset your tasky account password.
 
 PASSWORD RESET REQUEST
 If you requested this password reset, click the link below to set a new password:
@@ -779,7 +779,7 @@ If you have any questions, please contact our support team.
 Stay secure! 🛡️
 
 --
-Taskosaur - Modern Project Management
+tasky - Modern Project Management
 This email was sent because a password reset was requested for your account.
         `;
 
@@ -796,7 +796,7 @@ Status: ${data.oldStatus.name} → ${data.newStatus.name}
 View task: ${data.taskUrl}
 
 --
-Taskosaur - Modern Project Management
+tasky - Modern Project Management
         `;
 
       case EmailTemplate.TASK_COMMENTED:
@@ -815,7 +815,7 @@ Comment: ${data.comment.content}
 View task and comment: ${data.taskUrl}
 
 --
-Taskosaur - Modern Project Management
+tasky - Modern Project Management
         `;
 
       case EmailTemplate.PROJECT_CREATED:
@@ -835,7 +835,7 @@ Created by: ${data.creator.name}
 View project: ${data.projectUrl}
 
 --
-Taskosaur - Modern Project Management
+tasky - Modern Project Management
         `;
 
       case EmailTemplate.PROJECT_UPDATED:
@@ -855,14 +855,14 @@ Updated by: ${data.updater.name}
 View project: ${data.projectUrl}
 
 --
-Taskosaur - Modern Project Management
+tasky - Modern Project Management
         `;
 
       case EmailTemplate.WORKSPACE_INVITED:
         return `
 Workspace Invitation
 
-You've been invited to join a workspace on Taskosaur.
+You've been invited to join a workspace on tasky.
 
 Workspace: ${data.entityName || 'Workspace'}
 ${data.organizationName ? `Organization: ${data.organizationName}` : ''}
@@ -871,7 +871,7 @@ Invited by: ${data.inviterName}
 View invitation: ${data.invitationUrl || data.entityUrl || '#'}
 
 --
-Taskosaur - Modern Project Management
+tasky - Modern Project Management
         `;
 
       case EmailTemplate.MENTION:
@@ -889,7 +889,7 @@ Mentioned by: ${data.mentioner.name}${data.textContent ? `\n\nMessage:\n${data.t
 View ${data.entityType === 'task' ? 'task' : 'comment'}: ${data.entityUrl}
 
 --
-Taskosaur - Modern Project Management
+tasky - Modern Project Management
         `;
 
       case EmailTemplate.SYSTEM:
@@ -901,13 +901,13 @@ ${data.notification.message}
 ${data.notification.actionUrl ? `View details: ${data.notification.actionUrl}` : ''}
 
 --
-Taskosaur - Modern Project Management
+tasky - Modern Project Management
         `;
 
       case EmailTemplate.SEND_INVITATION:
         return `Hi,
 
-${data.inviterName} has invited you to join ${data.entityName} on Taskosaur as a ${data.role}.
+${data.inviterName} has invited you to join ${data.entityName} on tasky as a ${data.role}.
 
 To accept this invitation, visit:
 ${data.invitationUrl}
@@ -915,7 +915,7 @@ ${data.invitationUrl}
 This invitation expires on ${data.expiresAt}.
 
 --
-Taskosaur - Project Management
+tasky - Project Management
         `;
 
       case EmailTemplate.DIRECT_ADD_NOTIFICATION:
@@ -927,11 +927,11 @@ You can access it here:
 ${data.entityUrl}
 
 --
-Taskosaur - Project Management
+tasky - Project Management
         `;
 
       default:
-        return `Taskosaur Notification\n\n${JSON.stringify(data, null, 2)}`;
+        return `tasky Notification\n\n${JSON.stringify(data, null, 2)}`;
     }
   }
 }

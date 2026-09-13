@@ -15,104 +15,145 @@
   <a href="LICENSE">License</a>
 </p>
 
-## Overview
+tasky is a self-hosted project management platform that combines structured project workflows with an in-app conversational AI assistant. Teams can manage work in familiar project views while using natural language to create, update, organize, and inspect tasks.
 
-tasky is a self-hosted project management platform that combines structured project workflows with an in-app conversational AI assistant. Teams can manage work through familiar project views while using natural language to create, update, organize, and inspect tasks.
+The application is built as a monorepo with a Next.js frontend, a NestJS API, PostgreSQL for application data, and Redis for background jobs. Uploaded files can use local storage or an S3-compatible bucket.
 
-The application is designed to keep your project data under your control. It runs as a containerized application backed by PostgreSQL and Redis, and can connect to an AI provider or self-hosted model endpoint through the application settings.
+## Highlights
 
-## Features
-
-- Conversational AI for project and task execution
-- Kanban boards, task lists, sprints, dependencies, and time tracking
-- Interactive Gantt charts with dependency visualization
-- Calendar views for month, week, and day planning
-- Dashboards with KPI metrics and team and task charts
-- Drag-and-drop dashboard widgets
-- CSV and Excel task export
-- CSV and Excel bulk import
+- Conversational AI for creating and updating project work
+- Projects, tasks, Kanban boards, sprints, dependencies, and time tracking
+- Calendar and interactive Gantt views
+- Dashboards with KPI metrics and configurable widgets
+- CSV and Excel import and export
 - Jira and Trello importers with field mapping
-- OpenID Connect (OIDC) authentication
-- Role-based access control and an administration dashboard
-- File uploads with local storage or optional AWS S3 storage
-- Background job processing with BullMQ and Redis
-- Internationalization support
+- OpenID Connect authentication and role-based access control
+- Administration dashboard and activity logging
+- Background jobs through BullMQ and Redis
+- Localized user interface
+- Local or S3-compatible file storage
 
 ## Architecture
 
 ```text
 Browser
-	|
-	+--> Next.js frontend (development: :3001)
-	|
-	+--> NestJS API (development: :3000, production: :3000)
-				 |
-				 +--> PostgreSQL 16  - application data
-				 +--> Redis 7        - queues and background jobs
-				 +--> Optional S3    - uploaded files
+  |
+  +-- Next.js frontend
+  |     Development: http://localhost:3001
+  |
+  +-- NestJS API
+        Development: http://localhost:3000
+        Production:  http://localhost:3000
+        |
+        +-- PostgreSQL 16
+        +-- Redis 7
+        +-- Optional S3-compatible object storage
 ```
 
-The production image contains the built frontend and backend and exposes a single application port. The development compose file runs the frontend and backend with the source tree mounted for live development.
+In development, Docker Compose runs PostgreSQL, Redis, the API, and the frontend with the source tree mounted for live development. The production image builds the frontend and backend into one container and exposes port 3000.
 
 ## Requirements
 
-- Docker Engine 24+ with Docker Compose v2
-- At least 4 GB of memory available to Docker for a comfortable local setup
-- Git, if cloning the repository
+For the recommended Docker workflow:
 
-Node.js 22 is used by the development and production Dockerfiles. A local Node.js installation is only needed when running the frontend or backend outside Docker.
+- Docker Engine 24 or newer
+- Docker Compose v2
+- At least 4 GB of memory available to Docker
 
-## Quick Start: Development
+For running services directly on the host:
 
-1. Clone the repository and enter the project directory:
+- Node.js 22 or newer
+- npm 10 or newer
+- PostgreSQL 16 or newer
+- Redis 7 or newer
+
+## Quick Start With Docker
+
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/sfgco/tasky-ai.git
    cd tasky-ai
    ```
 
-2. Create a local environment file:
+2. Create the environment file:
 
    ```bash
    cp .env.example .env
    ```
 
-3. Replace the example authentication and encryption values with secure values:
+3. Replace the example secrets in `.env`. Generate values with:
 
    ```bash
-   openssl rand -base64 32
-   openssl rand -base64 32
-   openssl rand -hex 32
+   openssl rand -base64 32  # JWT_SECRET
+   openssl rand -base64 32  # JWT_REFRESH_SECRET
+   openssl rand -hex 32     # ENCRYPTION_KEY
    ```
 
-   Use the generated values for `JWT_SECRET`, `JWT_REFRESH_SECRET`, and `ENCRYPTION_KEY` in `.env`.
+   Use different values for each variable. Do not commit `.env` or share production secrets.
 
-4. Start the development stack:
+4. Build and start the development stack:
 
    ```bash
    docker compose -f docker-compose.dev.yml up --build
    ```
 
-5. Open the application at [http://localhost:3001](http://localhost:3001). The API is available at [http://localhost:3000](http://localhost:3000), and the health endpoint is [http://localhost:3000/api/health](http://localhost:3000/api/health).
+   The development entrypoint waits for PostgreSQL and Redis, generates the Prisma client, applies migrations, seeds the database, and starts both application servers.
 
-The development stack starts PostgreSQL and Redis first, generates the Prisma client, applies migrations, seeds the database, and then starts the frontend and backend services.
+5. Open the application:
 
-### Development Commands
+   - Frontend: [http://localhost:3001](http://localhost:3001)
+   - API: [http://localhost:3000](http://localhost:3000)
+   - Health check: [http://localhost:3000/api/health](http://localhost:3000/api/health)
+
+The development Compose file publishes PostgreSQL on port 5435 and Redis on port 6379. Inside the Docker network, the application connects to the services as `postgres` and `redis`.
+
+### Development Container Commands
 
 ```bash
 # Follow application logs
 docker compose -f docker-compose.dev.yml logs -f app
 
-# Stop the development stack and keep database volumes
+# Stop containers and keep persistent volumes
 docker compose -f docker-compose.dev.yml down
 
-# Stop the stack and delete all local database, Redis, and upload data
+# Stop containers and delete database, Redis, and upload data
 docker compose -f docker-compose.dev.yml down -v
+```
+
+## Run Without Docker
+
+Start PostgreSQL and Redis locally, then make sure `.env` points to services reachable from your host. Install dependencies and generate the Prisma client:
+
+```bash
+npm install
+npm run db:generate
+```
+
+Apply the development schema and seed data:
+
+```bash
+npm run db:migrate
+npm run db:seed
+npm run db:seed:admin
+```
+
+Start both servers:
+
+```bash
+npm run dev
+```
+
+You can also start one service at a time:
+
+```bash
+npm run dev:backend   # http://localhost:3000
+npm run dev:frontend  # http://localhost:3001
 ```
 
 ## Production Deployment
 
-The production compose file builds the optimized image and exposes the application on port `3000`.
+The production Compose file builds the optimized image, runs migrations, and serves the application on port 3000.
 
 1. Create and edit the environment file:
 
@@ -120,21 +161,15 @@ The production compose file builds the optimized image and exposes the applicati
    cp .env.example .env
    ```
 
-2. Set strong, unique values for at least these variables:
+2. Set strong values for `JWT_SECRET`, `JWT_REFRESH_SECRET`, and `ENCRYPTION_KEY`. Configure `FRONTEND_URL`, `CORS_ORIGIN`, database credentials, and any email or S3 settings needed by your deployment.
 
-   ```dotenv
-   JWT_SECRET=replace-with-a-long-random-value
-   JWT_REFRESH_SECRET=replace-with-a-different-long-random-value
-   ENCRYPTION_KEY=replace-with-a-64-character-hex-value
-   ```
-
-3. Build and start the production stack:
+3. Build and start the stack:
 
    ```bash
    docker compose --env-file .env -f docker-compose.prod.yml up -d --build
    ```
 
-4. Check the service and view logs:
+4. Check service status and logs:
 
    ```bash
    docker compose --env-file .env -f docker-compose.prod.yml ps
@@ -143,83 +178,91 @@ The production compose file builds the optimized image and exposes the applicati
 
 5. Open [http://localhost:3000](http://localhost:3000).
 
-For a public deployment, put the application behind HTTPS and a reverse proxy, set `FRONTEND_URL` and `CORS_ORIGIN` to the public origin, and use managed or separately secured PostgreSQL and Redis services where appropriate.
+Set `APP_PORT` to publish a different host port. For a public deployment, put the application behind HTTPS, restrict CORS to the public frontend origin, and use separately secured or managed PostgreSQL and Redis services where appropriate.
 
 ## Configuration
 
-`.env.example` contains the complete configuration reference. The most important settings are:
+`.env.example` is the source of truth for available settings. The most important variables are:
 
-| Variable                     | Purpose                             | Default                     |
-| ---------------------------- | ----------------------------------- | --------------------------- |
-| `DATABASE_URL`               | PostgreSQL connection string        | Local PostgreSQL URL        |
-| `REDIS_HOST` / `REDIS_PORT`  | Redis connection                    | `localhost` / `6379`        |
-| `JWT_SECRET`                 | Access-token signing secret         | Required for production     |
-| `JWT_REFRESH_SECRET`         | Refresh-token signing secret        | Required for production     |
-| `ENCRYPTION_KEY`             | Encryption key for sensitive values | Required for production     |
-| `FRONTEND_URL`               | Frontend origin used by the backend | `http://localhost:3001`     |
-| `CORS_ORIGIN`                | Allowed browser origin              | `http://localhost:3001`     |
-| `NEXT_PUBLIC_API_BASE_URL`   | API URL used by the frontend        | `http://localhost:3000/api` |
-| `UPLOAD_DEST`                | Local upload directory              | `./uploads`                 |
-| `MAX_FILE_SIZE`              | Maximum upload size in bytes        | `10485760`                  |
-| `SMTP_HOST` / `SMTP_PORT`    | Outbound email server               | Optional                    |
-| `AWS_*`                      | Optional S3-compatible file storage | Optional                    |
-| `AI_ALLOWED_HOSTS`           | Allowed AI endpoint hostnames       | Any public host             |
-| `AI_ALLOW_PRIVATE_ENDPOINTS` | Allow private-network AI endpoints  | `false`                     |
+| Variable | Purpose | Typical value |
+| --- | --- | --- |
+| `DATABASE_URL` | PostgreSQL connection string when running outside Compose | `postgresql://tasky:tasky@localhost:5432/tasky` |
+| `REDIS_HOST` / `REDIS_PORT` | Redis connection | `localhost` / `6379` |
+| `JWT_SECRET` | Access-token signing secret | Required secret |
+| `JWT_REFRESH_SECRET` | Refresh-token signing secret | Required secret |
+| `ENCRYPTION_KEY` | Encryption for sensitive values | Required 64-character hex value |
+| `FRONTEND_URL` | Frontend origin used by the backend | `http://localhost:3001` |
+| `CORS_ORIGIN` | Allowed browser origin | `http://localhost:3001` |
+| `NEXT_PUBLIC_API_BASE_URL` | API URL used by the frontend | `http://localhost:3000/api` |
+| `UPLOAD_DEST` | Local upload directory | `./uploads` |
+| `MAX_FILE_SIZE` | Maximum upload size in bytes | `10485760` |
+| `SMTP_*` | Outbound email configuration | Optional |
+| `AWS_*` | S3-compatible file storage | Optional |
+| `AI_ALLOWED_HOSTS` | Hostnames permitted for AI requests | Optional allowlist |
+| `AI_ALLOW_PRIVATE_ENDPOINTS` | Permit private-network AI endpoints | `false` |
 
-When using Docker Compose, the compose files override `DATABASE_URL` and `REDIS_HOST` with the internal service names `postgres` and `redis`. Keep the Docker-specific values in the compose files and use `.env` for secrets and deployment-specific settings.
+Compose overrides `DATABASE_URL` and `REDIS_HOST` with the internal service names. Keep secrets and deployment-specific values in `.env`; do not replace the Compose service names with `localhost` when the app runs inside Docker.
+
+## Useful Commands
+
+Run commands from the repository root:
+
+```bash
+# Build and quality checks
+npm run build
+npm run lint
+npm run test
+
+# Run targeted checks
+npm run lint:frontend
+npm run lint:backend
+npm run test:frontend
+npm run test:backend
+npm run test:e2e
+
+# Database administration
+npm run db:migrate
+npm run db:migrate:deploy
+npm run db:generate
+npm run db:studio
+npm run db:seed:admin
+```
+
+`npm run db:reset` deletes local database data and should only be used when that is intentional.
 
 ## Repository Layout
 
 ```text
-backend/             NestJS API, Prisma schema, migrations, and tests
-frontend/            Next.js application and end-to-end tests
-assets/logo/         Project branding assets
-docker/              Container entrypoints and Docker notes
-scripts/             Build and packaging scripts
-Dockerfile.dev       Development image
-Dockerfile.prod      Multi-stage production image
-docker-compose.dev.yml   Development services
-docker-compose.prod.yml  Production build and services
-.env.example         Environment variable reference
-ROADMAP.md           Planned and completed work
-SECURITY.md          Vulnerability reporting and security guidance
+backend/                NestJS API, Prisma schema, migrations, and tests
+frontend/               Next.js application and end-to-end tests
+assets/logo/            Project branding assets
+docker/                 Container entrypoints and Docker notes
+scripts/                Build and packaging scripts
+Dockerfile.dev          Development image
+Dockerfile.prod         Multi-stage production image
+docker-compose.dev.yml  Development services
+docker-compose.prod.yml Production services
+.env.example            Environment variable reference
+ROADMAP.md              Planned and completed work
+SECURITY.md             Vulnerability reporting guidance
 ```
-
-## Testing and Quality Checks
-
-Run checks inside the relevant package after dependencies are installed:
-
-```bash
-# Backend
-cd backend
-npm run lint:check
-npm test
-npm run test:e2e
-
-# Frontend
-cd ../frontend
-npm run lint
-npm run test:e2e
-```
-
-The Docker development workflow is the recommended way to run the complete application because it supplies PostgreSQL, Redis, and the expected service networking.
 
 ## Troubleshooting
 
 ### Ports are already in use
 
-Stop the process using ports `3000`, `3001`, or `5435`, or change the published ports in `docker-compose.dev.yml`. The internal application ports should remain unchanged.
+The development stack publishes ports 3000, 3001, 5435, and 6379. Stop the process using the conflicting port or change the published port in `docker-compose.dev.yml`. Keep the internal application ports at 3000 and 3001.
 
-### The application cannot connect to PostgreSQL or Redis
+### PostgreSQL or Redis is unavailable
 
-Check service health and logs:
+Check container health and logs:
 
 ```bash
 docker compose -f docker-compose.dev.yml ps
 docker compose -f docker-compose.dev.yml logs postgres redis app
 ```
 
-When running outside Docker, set `DATABASE_URL` and `REDIS_HOST` to addresses reachable from the host machine. When running inside Compose, use the service names `postgres` and `redis`.
+When running outside Docker, verify that `DATABASE_URL`, `REDIS_HOST`, and `REDIS_PORT` use host-reachable addresses.
 
 ### Configuration changes are not picked up
 
@@ -230,11 +273,25 @@ docker compose -f docker-compose.dev.yml down
 docker compose -f docker-compose.dev.yml up --build
 ```
 
+### The database schema is out of date
+
+For development, run:
+
+```bash
+npm run db:migrate
+```
+
+For a deployed database, use the migration deployment command:
+
+```bash
+npm run db:migrate:deploy
+```
+
 ## Security
 
-Never commit `.env`, production credentials, or generated secrets. Use unique secrets for every environment, enable Redis authentication in production, use HTTPS, restrict CORS to the real frontend origin, and review the AI endpoint allowlist before enabling private-network access.
+Never commit `.env`, credentials, generated secrets, or uploaded user data. Use unique secrets per environment, enable Redis authentication in production, serve the application over HTTPS, restrict CORS to the real frontend origin, and review the AI and Jira host allowlists before enabling private-network access.
 
-Please report vulnerabilities privately using the process in [SECURITY.md](SECURITY.md), rather than opening a public issue.
+Report vulnerabilities privately using the process in [SECURITY.md](SECURITY.md) instead of opening a public issue.
 
 ## Roadmap
 

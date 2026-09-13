@@ -559,13 +559,13 @@ export class EmailService {
       const emailData = {
         ...data,
         userName: sanitizeHtml(data.userName),
-        supportEmail: this.configService.get('SUPPORT_EMAIL', 'support@taskosaur.com'),
-        companyName: 'Taskosaur',
+        supportEmail: this.configService.get('SUPPORT_EMAIL', 'support@tasky.com'),
+        companyName: 'tasky',
       };
 
       await this.sendEmail({
         to: email,
-        subject: 'Password Successfully Reset - Taskosaur',
+        subject: 'Password Successfully Reset - tasky',
         template: EmailTemplate.PASSWORD_RESET_CONFIRMATION,
         data: emailData,
         priority: EmailPriority.HIGH,
@@ -592,13 +592,13 @@ export class EmailService {
         inviterName: sanitizeHtml(data.inviterName),
         entityName: sanitizeHtml(data.entityName),
         role: sanitizeHtml(data.role),
-        supportEmail: this.configService.get('SUPPORT_EMAIL', 'support@taskosaur.com'),
-        companyName: 'Taskosaur',
+        supportEmail: this.configService.get('SUPPORT_EMAIL', 'support@tasky.com'),
+        companyName: 'tasky',
       };
 
       await this.sendEmail({
         to: email,
-        subject: `You're invited to join ${data.entityName} - Taskosaur`,
+        subject: `You're invited to join ${data.entityName} - tasky`,
         template: EmailTemplate.SEND_INVITATION,
         data: emailData,
         priority: EmailPriority.NORMAL,
@@ -629,15 +629,15 @@ export class EmailService {
         entityName: sanitizeHtml(data.entityName),
         role: sanitizeHtml(data.role),
         organizationName: data.organizationName ? sanitizeHtml(data.organizationName) : undefined,
-        supportEmail: this.configService.get('SUPPORT_EMAIL', 'support@taskosaur.com'),
-        companyName: 'Taskosaur',
+        supportEmail: this.configService.get('SUPPORT_EMAIL', 'support@tasky.com'),
+        companyName: 'tasky',
       };
 
       // const _entityTypeLabel = data.entityType === 'workspace' ? 'workspace' : 'project';
 
       await this.sendEmail({
         to: email,
-        subject: `You've been added to ${data.entityName} - Taskosaur`,
+        subject: `You've been added to ${data.entityName} - tasky`,
         template: EmailTemplate.DIRECT_ADD_NOTIFICATION,
         data: emailData,
         priority: EmailPriority.NORMAL,
