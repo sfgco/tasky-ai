@@ -1,0 +1,160 @@
+{
+  "analytics_title": "تحليلات مساحة العمل",
+  "analytics_description": "رؤى حول أداء ومسارات مساحة العمل الخاصة بك",
+  "dashboard_settings": "إعدادات لوحة القيادة",
+  "customize_widgets": "تخصيص عناصر لوحة القيادة",
+  "no_widgets_title": "لا توجد عناصر لعرضها",
+  "no_widgets_description": "جميع العناصر مخفية حاليًا. استخدم زر التخصيص لعرض العناصر.",
+  "show_all_widgets": "عرض جميع العناصر",
+  "no_data": "لا تتوفر بيانات تحليلية لهذه المؤسسة.",
+  "load_data": "تحميل البيانات",
+  "error_loading": "خطأ في تحميل تحليلات المؤسسة:",
+  "widgets": {
+    "kpi_metrics": "مؤشرات الأداء الرئيسية",
+    "project_status": "حالة المشروع",
+    "task_priority": "أولوية المهام",
+    "task_type": "نوع المهمة",
+    "sprint_status": "حالة السبرينت",
+    "monthly_completion": "الإنجاز الشهري للمهام",
+    "team_utilization": "استخدام الفريق",
+    "quality_metrics": "جودة إصلاح الأخطاء",
+    "workspace_projects": "المشاريع لكل مساحة عمل",
+    "member_workload": "عبء عمل الأعضاء",
+    "resource_allocation": "تخصيص الموارد"
+  },
+  "roles": {
+    "admin": "مسؤول",
+    "manager": "مدير",
+    "member": "عضو",
+    "viewer": "مشاهد",
+    "guest": "ضيف",
+    "contributor": "مساهم"
+  },
+  "project_status": {
+    "planning": "تخطيط",
+    "active": "نشط",
+    "on_hold": "معلق",
+    "completed": "مكتمل",
+    "cancelled": "ملغى"
+  },
+  "task_types": {
+    "story": "قصة",
+    "task": "مهمة",
+    "bug": "خطأ",
+    "epic": "ملحمة",
+    "feature": "ميزة"
+  },
+  "priority": {
+    "lowest": "الأدنى",
+    "low": "منخفض",
+    "medium": "متوسط",
+    "high": "مرتفع",
+    "highest": "الأعلى"
+  },
+  "workload": {
+    "label": "عبء العمل",
+    "low": "منخفض",
+    "medium": "متوسط",
+    "high": "مرتفع",
+    "assigned": "المهام الموكلة",
+    "reported": "المهام المبلغ عنها"
+  },
+  "quality": {
+    "resolved": "تم الإصلاح",
+    "remaining": "المتبقي",
+    "low_performance": "أداء منخفض",
+    "medium_performance": "أداء متوسط",
+    "high_performance": "أداء مرتفع",
+    "resolution_rate": "معدل الإصلاح"
+  },
+  "project_count": {
+    "low": "<= 5 مشاريع",
+    "medium": "6-10 مشاريع",
+    "high": "> 10 مشاريع"
+  },
+  "charts": {
+    "project_status_description": "التوزيع الحالي لحالة جميع المشاريع",
+    "project_status_description_with_count": "{{count}} مشاريع إجمالاً في المؤسسة",
+    "task_priority_description": "نظرة عامة على المهام حسب مستويات الأولوية عبر جميع المشاريع",
+    "task_type_description": "توزيع المهام حسب النوع",
+    "task_type_description_with_count": "{{count}} مهام إجمالاً في المؤسسة",
+    "sprint_status_description": "الحالة الحالية لجميع السبرينت عبر المشاريع",
+    "kpi_metrics_description": "مؤشرات الأداء الرئيسية لمساحة عملك",
+    "monthly_completion_description": "عدد المهام المكتملة كل شهر",
+    "team_utilization_description_all": "توزيع أدوار الأعضاء في المؤسسة",
+    "team_utilization_description_workspace": "توزيع الأدوار لمساحة العمل المحددة",
+    "all_workspaces": "جميع مساحات العمل",
+    "member_workload_description": "المهام النشطة مقابل المهام المبلغ عنها لكل عضو",
+    "workspace_projects_description": "توزيع المشاريع عبر مساحات العمل",
+    "resource_allocation_description_all": "توزيع أعضاء الفريق حسب الدور",
+    "resource_allocation_description_project": "توزيع الأدوار للمشروع المحدد",
+    "all_projects": "جميع المشاريع",
+    "count": "العدد",
+    "quality_metrics_description_with_count": "{{resolved}}/{{total}} أخطاء تم إصلاحها ({{rate}}%)"
+  },
+  "kpi": {
+    "total_projects": "إجمالي المشاريع",
+    "active_projects": "المشاريع النشطة",
+    "completion_rate": "معدل الإنجاز",
+    "total_tasks": "إجمالي المهام",
+    "overdue_tasks": "المهام المتأخرة",
+    "task_health": "حالة المهام",
+    "excellent": "ممتاز",
+    "good": "جيد",
+    "needs_focus": "يحتاج إلى التركيز",
+    "perfect": "مثالي",
+    "critical": "حرج",
+    "monitor": "مراقبة"
+  },
+  "header": {
+    "ready_to_tackle": "هل أنت مستعد لتحقيق أهدافك؟",
+    "todays_agenda": "أجندة اليوم",
+    "new_task": "مهمة جديدة"
+  },
+  "analytics": {
+    "failed_to_fetch_today_task_data": "فشل في جلب بيانات مهام اليوم",
+    "error_loading_organization_analytics": "خطأ في تحميل تحليلات المؤسسة:",
+    "today_agenda_tooltip": "أجندة اليوم",
+    "dashboard_settings_tooltip": "إعدادات لوحة التحكم",
+    "dashboard_title": "لوحة التحكم",
+    "dashboard_description": "رؤى شاملة حول أداء وصحة مؤسستك",
+    "no_analytics_data": "لا تتوفر بيانات تحليلية لهذه المؤسسة.",
+    "load_data_button": "تحميل البيانات",
+    "no_widgets_title": "لا توجد عناصر واجهة للعرض",
+    "no_widgets_description": "جميع عناصر واجهة المستخدم مخفية حاليًا. استخدم زر التخصيص لعرض عناصر واجهة المستخدم.",
+    "show_all_widgets_button": "عرض جميع عناصر واجهة المستخدم",
+    "failed_to_load_widget_data": "فشل في تحميل بيانات {{widgetTitle}}",
+    "retry_button": "إعادة المحاولة",
+    "kpi_cards": {
+      "workspaces": "إجمالي مساحات العمل",
+      "projects": "إجمالي المشاريع",
+      "members": "أعضاء الفريق",
+      "task_completion": "إكمال المهام",
+      "bug_resolution": "حل الأخطاء",
+      "overdue_tasks": "المهام المتأخرة",
+      "active_sprints": "السباقات النشطة",
+      "productivity": "إجمالي الإنتاجية",
+      "descriptions": {
+        "active_status": "{{count}} نشط",
+        "organization_members": "أعضاء المؤسسة",
+        "tasks_count": "{{completed}} / {{total}} مهام",
+        "resolved_count": "{{resolved}} / {{total}} تم حلها",
+        "require_attention": "تتطلب الانتباه",
+        "currently_running": "جارٍ التنفيذ",
+        "task_completion_rate": "معدل إكمال المهام"
+      }
+    }
+  },
+  "agenda": {
+    "overdue": "متأخرة",
+    "today": "اليوم",
+    "tomorrow": "غدًا",
+    "due": "مستحقة",
+    "no_due_date": "لا يوجد تاريخ استحقاق",
+    "all_clear": "كل شيء على ما يرام اليوم!",
+    "no_tasks_scheduled": "لا توجد مهام مجدولة. أنت على اطلاع!",
+    "great_job": "عمل رائع، استمر في التنظيم!",
+    "open_task": "مهمة مفتوحة: {{title}}",
+    "click_to_view": "انقر هنا لعرض تفاصيل المهمة"
+  }
+}

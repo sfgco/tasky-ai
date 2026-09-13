@@ -1,0 +1,141 @@
+{
+  "title": "مشاريعك",
+  "description": "قم بإدارة وتنظيم المشاريع داخل هذه المنظمة.",
+  "search_placeholder": "البحث عن المشاريع...",
+  "advanced_filters": "مرشحات متقدمة",
+  "filter_placeholder": "تصفية المشاريع...",
+  "create_project": "إنشاء مشروع",
+  "no_projects_found": "لم يتم العثور على مشاريع",
+  "no_projects_match": "لا توجد مشاريع تطابق بحثك الحالي ومرشحاتك. حاول تعديل معاييرك.",
+  "clear_filters": "مسح المرشحات",
+  "empty_state_title": "لم يتم العثور على مشاريع",
+  "empty_state_description": "قم بإنشاء مشروعك الأول للبدء في تنظيم مهامك والتعاون مع فريقك.",
+  "tasks_count": "عدد المهام",
+  "start_date": "تاريخ البدء",
+  "load_more": "تحميل المزيد",
+  "loading": "جارٍ التحميل...",
+  "showing_projects_one": "يتم عرض {{count}} مشروع",
+  "showing_projects_other": "يتم عرض {{count}} مشاريع",
+  "matching": " مطابق لـ \"{{query}}\"",
+  "with_filters_one": " مع تطبيق {{count}} مرشح",
+  "with_filters_other": " مع تطبيق {{count}} مرشحات",
+  "status": {
+    "active": "نشط",
+    "planning": "تخطيط",
+    "on_hold": "معلق",
+    "completed": "مكتمل"
+  },
+  "priority": {
+    "title": "الأولوية"
+  },
+  "messages": {
+    "created_success": "تم إنشاء المشروع بنجاح!",
+    "refresh_failed": "تم إنشاء المشروع، ولكن لم يتمكن من تحديث القائمة",
+    "load_failed": "تعذر تحميل المشاريع",
+    "auth_required": "المصادقة مطلوبة. يرجى تسجيل الدخول مرة أخرى."
+  },
+  "modal": {
+    "createTitle": "إنشاء مشروع جديد",
+    "createDescription": "قم بتنظيم مهامك والتعاون مع فريقك",
+    "tryAgain": "حاول مرة أخرى",
+    "projectName": "اسم المشروع",
+    "enterProjectName": "أدخل اسم المشروع",
+    "url": "رابط URL:",
+    "urlWorkspace": "مساحة-العمل",
+    "urlProject": "اسم-المشروع",
+    "workflow": "سير العمل",
+    "searchWorkflows": "البحث عن سير العمل...",
+    "noWorkflowsFound": "لم يتم العثور على سير العمل.",
+    "typeToSearchWorkflows": "اكتب للبحث عن سير العمل",
+    "selectWorkflow": "اختر سير العمل",
+    "workflowHint": "اختر سير العمل لعملية مشروعك.",
+    "visibility": "الرؤية",
+    "selectVisibility": "اختر الرؤية",
+    "noVisibilityOptions": "لم يتم العثور على خيارات الرؤية.",
+    "visibilityHint": "تحكم في من يمكنه الوصول إلى هذا المشروع.",
+    "workspace": "مساحة العمل",
+    "loadingWorkspaces": "جارٍ تحميل مساحات العمل...",
+    "selectWorkspace": "اختر مساحة العمل",
+    "searchWorkspaces": "البحث عن مساحات العمل...",
+    "noWorkspacesFound": "لم يتم العثور على مساحات العمل.",
+    "typeToSearchWorkspaces": "اكتب للبحث عن مساحات العمل",
+    "workspaceHint": "سيتم إنشاء المشروع في مساحة العمل هذه.",
+    "description": "الوصف",
+    "descriptionPlaceholder": "صف مشروعك...",
+    "descriptionHint": "ساعد فريقك على فهم أهداف المشروع ونطاقه.",
+    "projectColors": "ألوان المشروع",
+    "selectCategory": "اختر الفئة",
+    "noCategoriesFound": "لم يتم العثور على فئات.",
+    "categoryHint": "اختر فئة لتنظيم مشروعك ووضع علامة عليه.",
+    "cancel": "إلغاء",
+    "create": "إنشاء المشروع",
+    "creating": "جارٍ إنشاء المشروع...",
+    "success": "تم إنشاء المشروع \"{{name}}\" بنجاح!",
+    "errorLoadWorkspaces": "تعذر تحميل مساحات العمل",
+    "errorCreate": "تعذر إنشاء المشروع",
+    "visibilityOptions": {
+      "PRIVATE": {
+        "label": "خاص",
+        "description": "يمكن للأعضاء فقط الوصول إلى هذا المشروع"
+      },
+      "INTERNAL": {
+        "label": "داخلي",
+        "description": "يمكن لأعضاء مساحة العمل العرض، ويمكن للأعضاء التحرير"
+      },
+      "PUBLIC": {
+        "label": "عام",
+        "description": "يمكن للجميع العرض، ويمكن للأعضاء التحرير"
+      }
+    }
+  },
+  "categories": {
+    "operational": {
+      "label": "تشغيلي",
+      "description": "العمليات اليومية والصيانة"
+    },
+    "technical": {
+      "label": "تقني",
+      "description": "مشاريع التطوير والمشاريع التقنية"
+    },
+    "strategic": {
+      "label": "استراتيجي",
+      "description": "التخطيط طويل الأمد والاستراتيجية"
+    },
+    "hiring": {
+      "label": "التوظيف",
+      "description": "التوظيف وبناء الفريق"
+    },
+    "financial": {
+      "label": "مالي",
+      "description": "التخطيط للميزانية والشؤون المالية"
+    },
+    "neutral": {
+      "label": "محايد",
+      "description": "مشاريع عامة أو غير مصنفة"
+    },
+    "innovation": {
+      "label": "الابتكار",
+      "description": "مبادرات الإبداع والابتكار"
+    },
+    "community": {
+      "label": "المجتمع",
+      "description": "مبادرات المجتمع والمشاركة"
+    },
+    "sustainability": {
+      "label": "الاستدامة",
+      "description": "مشاريع الاستدامة والبيئة"
+    },
+    "marketing": {
+      "label": "التسويق",
+      "description": "حملات التسويق والتواصل"
+    },
+    "research": {
+      "label": "البحث",
+      "description": "مشاريع البحث والتحليل"
+    },
+    "growth": {
+      "label": "النمو",
+      "description": "مبادرات النمو والتوسع"
+    }
+  }
+}
