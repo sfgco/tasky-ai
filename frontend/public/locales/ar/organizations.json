@@ -1,0 +1,28 @@
+{
+  "modal": {
+    "createTitle": "إنشاء منظمة جديدة",
+    "createDescription": "قدم معلومات عن منظمتك الجديدة",
+    "name": "اسم المنظمة",
+    "namePlaceholder": "أدخل اسم المنظمة",
+    "slug": "معرّف المنظمة",
+    "slugPlaceholder": "معرّف-المنظمة",
+    "slugHint": "سيتم استخدام هذا في رابط URL الخاص بالمنظمة. يُسمح فقط بالأحرف الصغيرة والأرقام والواصلات.",
+    "description": "الوصف",
+    "descriptionPlaceholder": "صف منظمتك...",
+    "website": "الموقع الإلكتروني",
+    "websitePlaceholder": "https://مثال.كوم",
+    "cancel": "إلغاء",
+    "create": "إنشاء المنظمة",
+    "update": "تحديث المنظمة",
+    "creating": "جارٍ الإنشاء...",
+    "saving": "جارٍ الحفظ...",
+    "success": "تم إنشاء المنظمة بنجاح!",
+    "errorDefault": "فشل إنشاء المنظمة",
+    "errorSave": "تعذر حفظ المنظمة. يرجى المحاولة مرة أخرى.",
+    "errorTitle": "خطأ عند إنشاء المنظمة",
+    "errorNameRequired": "اسم المنظمة مطلوب",
+    "errorSlugRequired": "معرّف المنظمة مطلوب",
+    "errorSlugInvalid": "يجب أن يحتوي المعرّف على أحرف صغيرة وأرقام وواصلات فقط",
+    "errorWebsiteInvalid": "يرجى إدخال رابط URL صالح"
+  }
+}

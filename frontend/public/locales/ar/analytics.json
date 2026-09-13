@@ -1,0 +1,84 @@
+{
+  "project_analytics_title": "تحليلات المشروع",
+  "project_analytics_description": "رؤى حول أداء مشروعك وإنتاجية الفريق",
+  "kpi_metrics": "مؤشرات الأداء الرئيسية",
+  "chart_widgets": "عناصر واجهة الرسم البياني",
+  "dashboard_settings": "إعدادات لوحة المعلومات",
+  "customize_widgets": "قم بتخصيص عناصر واجهة لوحة المعلومات الخاصة بك",
+  "no_widgets_title": "لا توجد عناصر واجهة للعرض",
+  "no_widgets_description": "جميع عناصر واجهة المستخدم مخفية حاليًا. استخدم زر التخصيص لعرض عناصر واجهة المستخدم.",
+  "show_all_widgets": "عرض جميع عناصر واجهة المستخدم",
+  "no_data_available": "لا تتوفر بيانات تحليلية لهذا المشروع.",
+  "load_data": "تحميل البيانات",
+  "no_settings_available": "لا توجد إعدادات متاحة",
+  "unknown": "غير معروف",
+  "na": "غير متاح",
+  "charts": {
+    "task_status_flow": {
+      "title": "تدفق حالة المهمة",
+      "description": "التوزيع الحالي للمهام حسب الحالة"
+    },
+    "task_type_distribution": {
+      "title": "توزيع نوع المهمة",
+      "description": "أنواع المهام في هذا المشروع",
+      "types": {
+        "story": "قصة",
+        "task": "مهمة",
+        "bug": "خطأ (Bug)",
+        "epic": "ملحمة",
+        "feature": "ميزة (Feature)"
+      }
+    },
+    "task_priority_distribution": {
+      "title": "توزيع أولوية المهام",
+      "description": "تفصيل مهام المشروع حسب الأولوية",
+      "count": "العدد",
+      "priorities": {
+        "lowest": "الأدنى",
+        "low": "منخفض",
+        "medium": "متوسط",
+        "high": "مرتفع",
+        "highest": "الأعلى"
+      }
+    },
+    "sprint_velocity_trend": {
+      "title": "اتجاه سرعة السبرينت",
+      "description": "نقاط القصة المكتملة لكل سبرينت",
+      "story_points": "نقاط القصة",
+      "average_velocity": "متوسط السرعة",
+      "no_sprints": "لم يتم العثور على سبرينت مكتملة لهذا المشروع"
+    }
+  },
+  "kpi": {
+    "total_tasks": {
+      "title": "إجمالي المهام",
+      "label": "المهام",
+      "description": "جميع المهام في المشروع"
+    },
+    "completed_tasks": {
+      "title": "المهام المكتملة",
+      "label": "المهام المكتملة",
+      "description": "تم الانتهاء بنجاح"
+    },
+    "active_sprints": {
+      "title": "السبرينتات النشطة",
+      "label": "السبرينتات النشطة",
+      "description": "جارٍ التنفيذ حاليًا"
+    },
+    "bug_resolution": {
+      "title": "حل الأخطاء",
+      "label": "حل الأخطاء",
+      "description": "{{resolved}}/{{total}} أخطاء تم حلها"
+    },
+    "task_completion": {
+      "title": "إتمام المهام",
+      "label": "إتمام المهام",
+      "description": "التقدم الإجمالي"
+    },
+    "open_bugs": {
+      "title": "الأخطاء المفتوحة",
+      "label": "الأخطاء المفتوحة",
+      "description": "تتطلب الانتباه"
+    }
+  }
+}

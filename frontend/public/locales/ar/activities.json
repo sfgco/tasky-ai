@@ -1,0 +1,30 @@
+{
+  "title": "تاسكي",
+  "description": "قم بإدارة وتتبع جميع أنشطتك في مكان واحد.",
+  "workspace_description": "الأنشطة والتحديثات الحالية في مساحة العمل \"{{workspaceName}}\"",
+  "filters": {
+    "all": "جميع الأنشطة",
+    "tasks": "المهام",
+    "projects": "المشاريع",
+    "workspaces": "مساحات العمل",
+    "users": "المستخدمون",
+    "comments": "التعليقات",
+    "status_changes": "تغييرات الحالة",
+    "assignments": "التعيينات",
+    "filter_by_type": "تصفية حسب النوع",
+    "clear_filter": "مسح الفلتر"
+  },
+  "pagination": {
+    "page_info": "الصفحة {{currentPage}} من {{totalPages}}",
+    "previous": "السابق",
+    "next": "التالي"
+  },
+  "recent_activity": "الأنشطة الأخيرة",
+  "workspace_activity": "أنشطة مساحة العمل",
+  "failed_to_load": "تعذر تحميل الأنشطة",
+  "failed_to_refresh": "تعذر تحديث الأنشطة",
+  "failed_to_load_workspace": "تعذر تحميل أنشطة مساحة العمل",
+  "no_activity": "لا توجد أنشطة بعد",
+  "no_filter_results": "لم يتم العثور على {{filter}}",
+  "workspace_not_found": "لم يتم العثور على مساحة العمل"
+}

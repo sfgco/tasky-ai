@@ -1,0 +1,141 @@
+{
+  "title": "إدارة السبرينت",
+  "description": "نظم عملك في تكرارات مركزة وتتبع التقدم بفعالية.",
+  "createSprint": "إنشاء سبرينت",
+  "noSprints": {
+    "title": "لا توجد سباقات بعد",
+    "description": "قم بإنشاء السباق الأول لتنظيم عملك في تكرارات مركزة."
+  },
+  "deleteSprint": {
+    "title": "حذف السبرينت",
+    "message": "هل أنت متأكد أنك تريد حذف السبرينت \"{{name}}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+    "confirm": "حذف",
+    "deleting": "جارٍ الحذف...",
+    "cancel": "إلغاء"
+  },
+  "errors": {
+    "workspaceNotFound": "لم يتم العثور على مساحة العمل",
+    "projectNotFound": "لم يتم العثور على المشروع",
+    "loadingProjectError": "حدث خطأ أثناء تحميل بيانات المشروع",
+    "loadingPageError": "حدث خطأ أثناء تحميل بيانات الصفحة",
+    "fetchingProjectError": "حدث خطأ أثناء جلب بيانات المشروع",
+    "fetchTasksFailed": "حدث خطأ أثناء جلب المهام"
+  },
+  "sprintTasks": {
+    "title": "مهام السبرينت",
+    "description": "قم بإدارة وتتبع جميع المهام في هذا السبرينت. {{total}} مهمة إجمالاً",
+    "searchPlaceholder": "ابحث عن المهام..."
+  },
+  "card": {
+    "noDates": "لم يتم تحديد تواريخ",
+    "days": "{{count}} أيام",
+    "completeSprint": "إكمال السبرينت",
+    "editSprint": "تحرير السبرينت",
+    "deleteSprint": "حذف السبرينت"
+  },
+  "form": {
+    "editTitle": "تحرير السبرينت",
+    "createTitle": "إنشاء سبرينت جديد",
+    "editDescription": "تحديث تفاصيل السبرينت والجدول الزمني",
+    "createDescription": "قم بإنشاء سبرينت جديد لتنظيم عملك في تكرارات مركزة",
+    "nameLabel": "اسم السبرينت",
+    "namePlaceholder": "أدخل اسم السبرينت",
+    "goalLabel": "هدف السبرينت",
+    "goalPlaceholder": "صف الهدف الرئيسي والنتائج المتوقعة لهذا السبرينت...",
+    "goalHint": "ساعد فريقك على فهم التركيز والنتائج المتوقعة من السبرينت.",
+    "statusLabel": "الحالة",
+    "statusPlaceholder": "اختر الحالة",
+    "startDateLabel": "تاريخ البدء",
+    "endDateLabel": "تاريخ الانتهاء",
+    "cancel": "إلغاء",
+    "update": "تحديث",
+    "create": "إنشاء",
+    "updating": "جارٍ التحديث...",
+    "creating": "جارٍ إنشاء السبرينت...",
+    "statuses": {
+      "planning": "تخطيط",
+      "active": "نشط",
+      "completed": "مكتمل",
+      "cancelled": "ملغى"
+    },
+    "validation": {
+      "nameRequired": "اسم السبرينت مطلوب",
+      "startDateRequired": "تاريخ البدء مطلوب",
+      "endDateRequired": "تاريخ الانتهاء مطلوب",
+      "endDateAfterStart": "يجب أن يكون تاريخ الانتهاء بعد تاريخ البدء"
+    },
+    "saveFailed": "تعذر حفظ السبرينت"
+  },
+  "board": {
+    "loading": "جارٍ التحميل...",
+    "invalidDate": "تاريخ غير صالح",
+    "noSprintSelected": "لم يتم تحديد سبرينت",
+    "selectSprintToView": "يرجى اختيار سبرينت لعرض اللوحة",
+    "noSprintSelectedSubtitle": "يرجى اختيار سبرينت من القائمة أعلاه لرؤية التقدم.",
+    "tasks": "المهام",
+    "points": "النقاط",
+    "startSprint": "بدء السبرينت",
+    "completeSprint": "إكمال السبرينت",
+    "tasksCompleted": "المهام المكتملة",
+    "storyPoints": "نقاط القصة",
+    "completionRate": "معدل الإنجاز",
+    "statuses": {
+      "sprintBacklog": "سبرينت-باكلوج",
+      "inProgress": "قيد التنفيذ",
+      "testing": "جارٍ الاختبار",
+      "done": "تم"
+    }
+  },
+  "selector": {
+    "noActiveSprint": "لا يوجد سبرينت نشط",
+    "noSprintsAvailable": "لا توجد سباقات متاحة",
+    "createFirstSprint": "أنشئ أول سبرينت لك"
+  },
+  "progress": {
+    "title": "تقدم السبرينت",
+    "timeline": "الجدول الزمني للسبرينت",
+    "daysRemaining": "{{count}} أيام متبقية",
+    "sprintEnded": "انتهى السبرينت",
+    "complete": "مكتمل",
+    "timeSpent": "الوقت المستغرق",
+    "estimated": "المقدر",
+    "tasksComplete": "المهام المكتملة",
+    "inProgress": "قيد التنفيذ",
+    "velocity": "السرعة",
+    "storyPointsPerDay": "نقاط القصة في اليوم",
+    "capacity": "السعة",
+    "burndown": "مخطط الحرق",
+    "burndownPlaceholder": "سيتم تنفيذ مخطط الحرق هنا",
+    "quickActions": "إجراءات سريعة",
+    "viewReport": "عرض تقرير السبرينت",
+    "exportData": "تصدير البيانات"
+  },
+  "planning": {
+    "title": "تخطيط السبرينت",
+    "selectSprint": "اختر السبرينت",
+    "selectSprintToPlan": "يرجى اختيار السبرينت من القائمة أعلاه للبدء في التخطيط.",
+    "saveChanges": "حفظ التغييرات",
+    "startSprint": "بدء السبرينت",
+    "goal": "هدف السبرينت",
+    "noGoal": "لم يتم تحديد هدف",
+    "duration": "المدة",
+    "noDates": "لم يتم تحديد تواريخ",
+    "capacity": "السعة",
+    "hours": "ساعات",
+    "productBacklog": "باكلوج المنتج",
+    "tasks": "المهام",
+    "sp": "نقاط القصة",
+    "noTasksInBacklog": "لا توجد مهام في الباكلوج",
+    "sprintBacklog": "باكلوج السبرينت",
+    "dragTasksHere": "اسحب المهام هنا لإضافتها إلى السبرينت",
+    "clickToMove": "انقر على المهام لنقلها بين الباكلوج والسبرينت",
+    "summary": "ملخص السبرينت",
+    "estimatedTime": "الوقت المقدر"
+  },
+  "tasksPanel": {
+    "title": "مهام السبرينت",
+    "tasks": "المهام",
+    "errorNoOrg": "لم يتم اختيار أي مؤسسة. يرجى اختيار مؤسسة أولاً.",
+    "fetchFailed": "فشل في جلب المهام"
+  }
+}

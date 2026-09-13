@@ -1,0 +1,204 @@
+{
+  "administration": "الإدارة",
+  "navigation": {
+    "overview": "نظرة عامة",
+    "users": "المستخدمون",
+    "organizations": "المنظمات",
+    "configuration": "الإعدادات"
+  },
+  "dashboard": {
+    "welcome_back": "مرحبًا بعودتك، {{name}}",
+    "platform_overview": "إليك نظرة عامة على منصتك. {{userCount}} مستخدم نشط في {{orgCount}} منظمة.",
+    "stats": {
+      "total_users": "إجمالي المستخدمين",
+      "active_users": "المستخدمون النشطون",
+      "organizations": "المنظمات",
+      "workspaces": "مساحات العمل",
+      "projects": "المشاريع",
+      "tasks": "المهام",
+      "new_this_week": "+{{count}} هذا الأسبوع"
+    },
+    "system_status": {
+      "title": "حالة النظام",
+      "manage": "إدارة",
+      "registration": "التسجيل",
+      "email_smtp": "البريد الإلكتروني / SMTP",
+      "sso": "تسجيل الدخول الموحد",
+      "enabled": "مفعل",
+      "disabled": "معطل",
+      "configured": "مكون",
+      "not_configured": "غير مكون"
+    }
+  },
+  "users": {
+    "title": "المستخدمون",
+    "description": "قم بإدارة المستخدمين وأدوارهم",
+    "search_placeholder": "ابحث بالاسم أو البريد الإلكتروني أو اسم المستخدم...",
+    "table": {
+      "user": "المستخدم",
+      "role": "الدور",
+      "status": "الحالة",
+      "organizations": "المنظمات",
+      "created": "تم الإنشاء",
+      "actions": "الإجراءات"
+    },
+    "roles": {
+      "super_admin": "المشرف الأعلى",
+      "user": "المستخدم"
+    },
+    "status": {
+      "active": "نشط",
+      "inactive": "غير نشط",
+      "suspended": "معلق"
+    },
+    "actions": {
+      "edit": "تعديل",
+      "suspend": "تعليق",
+      "activate": "تفعيل",
+      "delete": "حذف",
+      "view_details": "عرض التفاصيل",
+      "promote_super_admin": "ترقية إلى مشرف أعلى",
+      "remove_super_admin": "إزالة حقوق المشرف الأعلى",
+      "deactivate": "إلغاء التفعيل",
+      "reset_password": "إعادة تعيين كلمة المرور",
+      "reset_password_link_copied": "تم نسخ رابط إعادة تعيين كلمة المرور للمستخدم {{name}} إلى الحافظة",
+      "delete_confirmation": "هل أنت متأكد أنك تريد حذف المستخدم {{name}}؟ لا يمكن التراجع عن هذا الإجراء.",
+      "user_removed": "تمت إزالة المستخدم {{name}}"
+    },
+    "total_count": "الإجمالي: {{count}} مستخدم",
+    "no_users": "لا يوجد مستخدمون في النظام بعد",
+    "details": {
+      "profile_info": "معلومات الملف الشخصي",
+      "actions": "الإجراءات",
+      "danger_zone": "منطقة الخطر",
+      "memberships": "عضويات المنظمات",
+      "last_login": "آخر تسجيل دخول",
+      "never": "أبدًا",
+      "email_verified": "تم التحقق من البريد الإلكتروني",
+      "source": "المصدر",
+      "timezone": "المنطقة الزمنية",
+      "language": "اللغة",
+      "yes": "نعم",
+      "no": "لا",
+      "membership_count": "{{count}} عضوية",
+      "membership_count_plural": "{{count}} عضويات",
+      "no_memberships": "لا توجد عضويات في أي منظمة"
+    }
+  },
+  "organizations": {
+    "title": "المنظمات",
+    "description": "قم بإدارة المنظمات وحدودها",
+    "create_new": "منظمة جديدة",
+    "search_placeholder": "ابحث بالاسم أو السبيكة...",
+    "table": {
+      "organization": "المنظمة",
+      "slug": "السبيكة",
+      "owner": "المالك",
+      "users": "المستخدمون",
+      "workspaces": "مساحات العمل",
+      "created": "تم الإنشاء",
+      "actions": "الإجراءات"
+    },
+    "total_count": "الإجمالي: {{count}} منظمة",
+    "no_orgs": "لا توجد منظمات في النظام بعد",
+    "details": {
+      "information": "معلومات المنظمة",
+      "danger_zone": "منطقة الخطر",
+      "members": "الأعضاء",
+      "workspaces": "مساحات العمل",
+      "projects": "المشاريع",
+      "tasks": "المهام"
+    },
+    "actions": {
+      "transfer_ownership": "نقل الملكية",
+      "transfer_confirmation": "هل أنت متأكد أنك تريد نقل ملكية هذه المنظمة؟ لا يمكن التراجع عن هذا الإجراء.",
+      "select_new_owner": "اختر مالكًا جديدًا",
+      "transfer": "نقل"
+    }
+  },
+  "config": {
+    "title": "تكوين النظام",
+    "description": "إعدادات النظام العامة",
+    "save_changes": "حفظ التغييرات",
+    "saving": "جارٍ الحفظ...",
+    "sections": {
+      "general": "الإعدادات العامة",
+      "registration": "التسجيل",
+      "registration_desc": "تحكم في من يمكنه إنشاء الحسابات والموارد على المنصة",
+      "security": "الأمان",
+      "smtp": "إعدادات SMTP"
+    },
+    "labels": {
+      "site_name": "اسم الموقع",
+      "registration_enabled": "تمكين التسجيل",
+      "registration_enabled_desc": "إذا تم تعطيله، يمكن للمسؤولين فقط إنشاء حسابات مستخدمين جديدة عن طريق الدعوة",
+      "default_org": "المنظمة الافتراضية",
+      "default_org_desc": "ينضم المستخدمون الجدد تلقائيًا إلى هذه المنظمة بدلاً من إنشاء واحدة خاصة بهم. اتركه فارغًا لإجبار إنشاء منظمة عند التسجيل.",
+      "default_org_active_desc": "ينضم المستخدمون الجدد تلقائيًا إلى {{name}}",
+      "default_org_none_desc": "يجب على المستخدمين الجدد إنشاء منظمة خاصة بهم عند التسجيل",
+      "allow_org_creation": "السماح بإنشاء المنظمات",
+      "allow_org_creation_desc": "إذا تم تعطيله، يمكن للمسؤولين الفائقين فقط إنشاء منظمات جديدة. سيتم تعيين المستخدمين إلى المنظمة الافتراضية.",
+      "allow_workspace_creation": "السماح بإنشاء مساحات العمل",
+      "allow_workspace_creation_desc": "إذا تم تعطيله، يمكن فقط لمالكي ومديري المنظمة إنشاء مساحات العمل.",
+      "allow_project_creation": "السماح بإنشاء المشاريع",
+      "allow_project_creation_desc": "إذا تم تعطيله، يمكن فقط لمديري مساحة العمل وما فوقهم إنشاء المشاريع.",
+      "resource_creation_perms": "أذونات إنشاء الموارد",
+      "sso_enabled": "تمكين تسجيل الدخول الموحد",
+      "sso_enabled_desc": "السماح للمستخدمين بتسجيل الدخول باستخدام مزود هوية خارجي",
+      "sso_desc": "تكوين OpenID Connect للمصادقة الخارجية",
+      "sso_provider_name": "اسم مزود العرض",
+      "sso_provider_name_desc": "يتم عرضه على زر تسجيل الدخول، على سبيل المثال 'تسجيل الدخول باستخدام Authentik'",
+      "sso_issuer_url": "عنوان URL للمصدر",
+      "sso_issuer_url_desc": "عنوان URL لاكتشاف OIDC، على سبيل المثال https://auth.example.com/application/o/tasky/",
+      "sso_client_id": "معرف العميل",
+      "sso_client_id_desc": "معرف عميل OAuth2 لمزود الهوية الخاص بك",
+      "sso_client_secret": "سر العميل",
+      "sso_client_secret_desc": "سر عميل OAuth2",
+      "sso_auto_register": "إنشاء الحسابات تلقائيًا عبر SSO",
+      "sso_auto_register_desc": "إذا تم تمكينه، يمكن إنشاء مستخدمين جدد عبر SSO، حتى إذا تم تعطيل التسجيل العام",
+      "smtp_host": "مضيف SMTP",
+      "smtp_host_desc": "على سبيل المثال smtp.gmail.com, smtp.sendgrid.net",
+      "smtp_port": "منفذ SMTP",
+      "smtp_port_desc": "المنافذ الشائعة: 587 (TLS)، 465 (SSL)، 25 (غير مشفر)",
+      "smtp_user": "مستخدم SMTP",
+      "smtp_user_desc": "عادةً عنوان بريدك الإلكتروني",
+      "smtp_pass": "كلمة مرور SMTP",
+      "smtp_pass_desc": "كلمة مرور التطبيق أو بيانات اعتماد SMTP",
+      "smtp_from": "عنوان مرسل SMTP",
+      "smtp_from_desc": "عنوان البريد الإلكتروني للمرسل للبريد الصادر",
+      "smtp_desc": "قم بتكوين إعدادات البريد الصادر للإشعارات وإعادة تعيين كلمات المرور", 
+      "redirect_uri": "عنوان إعادة التوجيه",
+      "redirect_uri_desc": "أضف هذا العنوان كعنوان إعادة توجيه/استدعاء في إعدادات مزود الهوية الخاص بك.",
+      "auto_generated": "تم إنشاؤه تلقائيًا",
+      "copy": "نسخ",
+      "copied_to_clipboard": "تم النسخ إلى الحافظة",
+      "test_connection": "اختبار الاتصال",
+      "test_connection_desc": "تحقق مما إذا كان خادم SMTP متاحًا وما إذا كانت بيانات الاعتماد صالحة",
+      "testing": "جارٍ الاختبار...",
+      "smtp_verified": "تم التحقق من اتصال SMTP",
+      "smtp_test_failed": "فشل اختبار SMTP",
+      "set_via_env": "تم التعيين عبر .env",
+      "readonly_env_desc": "تم تعيين هذه القيمة عبر متغير بيئة ولا يمكن تغييرها هنا."
+    },
+    "warnings": {
+      "no_org_creation_or_default": "تم تعطيل إنشاء المؤسسة ولم يتم تعيين مؤسسة افتراضية",
+      "no_org_creation_or_default_desc": "لا يمكن للمستخدمين الجدد المتابعة بعد تسجيل الدخول. قم بتعيين مؤسسة افتراضية أعلاه أو قم بتمكين إنشاء المؤسسة أدناه."
+    },
+    "save_success": "تم حفظ التكوين لقسم {{section}} بنجاح",
+    "save_error": "تعذر حفظ التكوين"
+  },
+  "common": {
+    "loading": "جارٍ التحميل...",
+    "error_loading": "تعذر تحميل البيانات",
+    "no_results": "لم يتم العثور على نتائج",
+    "success": "نجاح",
+    "filters": "مرشحات",
+    "try_adjusting": "حاول تعديل البحث أو المرشحات",
+    "none": "لا شيء",
+    "confirmation": {
+      "title": "هل أنت متأكد؟",
+      "confirm": "تأكيد",
+      "cancel": "إلغاء"
+    }
+  }
+}
