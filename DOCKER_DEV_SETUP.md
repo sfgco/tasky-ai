@@ -1,6 +1,12 @@
 # Docker Development Setup
 
-Quick guide to run tasky in development mode using Docker Compose.
+This guide explains how to run tasky locally in development mode using Docker Compose.
+Docker Compose starts the application, PostgreSQL, and Redis together so the backend
+and frontend can be developed without installing those services directly on the host.
+
+The development stack is intended for local work and hot-reloading. It should not be
+used as a production deployment because it exposes development ports and runs the
+application in watch mode.
 
 ## Prerequisites
 
@@ -16,6 +22,14 @@ Quick guide to run tasky in development mode using Docker Compose.
 
 ## Quick Start
 
+The normal startup flow is:
+
+1. Docker creates a private network for the services.
+2. PostgreSQL and Redis start and report healthy status.
+3. The application container waits for both dependencies.
+4. Prisma is generated, migrations are applied, and seed data is created.
+5. The frontend and backend start together in development mode.
+
 ### 1. Setup environment variables
 
 ```bash
@@ -23,6 +37,8 @@ cp .env.example .env
 ```
 
 Review and update `.env` with your custom values if needed (JWT secrets, SMTP settings, etc.).
+The defaults in `docker-compose.dev.yml` are suitable for local development, but you
+should replace placeholder secrets before testing authentication or integrations.
 
 ### 2. Start all services
 
@@ -50,13 +66,20 @@ docker-compose -f docker-compose.dev.yml up -d
 - **Backend API**: http://localhost:3000
 - **Backend API Docs**: http://localhost:3000/api/docs
 
+Keep the terminal attached to `docker-compose ... up` when you want to see logs directly.
+Use the `-d` option when you want the containers to continue running in the background.
+
 ## Services
 
 The docker-compose setup includes:
 
-- **postgres** (PostgreSQL 16) - Internal only
-- **redis** (Redis 7) - Internal only
-- **app** (Backend + Frontend) - Ports 3000 (Backend) & 3001 (Frontend)
+- **postgres** (PostgreSQL 16) - Stores users, projects, tasks, and other persistent application data. It is available to the other containers but is not normally exposed to the host.
+- **redis** (Redis 7) - Provides caching and queue support for background or realtime work. It is available to the other containers but is not normally exposed to the host.
+- **app** (Backend + Frontend) - Runs the NestJS API on port 3000 and the frontend on port 3001.
+
+The application connects to PostgreSQL and Redis by their Compose service names,
+`postgres` and `redis`. From your host machine, use `localhost` and the published
+ports instead.
 
 ## Useful Commands
 
@@ -76,17 +99,28 @@ docker-compose -f docker-compose.dev.yml logs -f app
 docker-compose -f docker-compose.dev.yml stop
 ```
 
+Pauses the containers without removing them or their data. Use this when you expect
+to resume the same development session later.
+
 ### Stop and remove containers
 
 ```bash
 docker-compose -f docker-compose.dev.yml down
 ```
 
+Stops and removes the containers and network, but keeps named database volumes by
+default. Your PostgreSQL and Redis data should remain available the next time the
+stack starts.
+
 ### Stop and remove containers + volumes (clean slate)
 
 ```bash
 docker-compose -f docker-compose.dev.yml down -v
 ```
+
+Removes the containers, network, and persistent volumes. This permanently deletes
+local database and Redis data, so use it only when you intentionally want a clean
+development environment.
 
 ### Restart the application
 
@@ -116,6 +150,10 @@ docker-compose -f docker-compose.dev.yml exec app npm run test:frontend
 docker-compose -f docker-compose.dev.yml up --build
 ```
 
+Source-code changes normally do not require a rebuild because the repository is
+mounted into the development container. Rebuild after changing dependencies,
+Dockerfile instructions, or system packages.
+
 ## Development Workflow
 
 The setup uses volume mounts for hot-reloading:
@@ -125,7 +163,16 @@ The setup uses volume mounts for hot-reloading:
 - Backend restarts automatically (NestJS watch mode)
 - Frontend supports Fast Refresh (Next.js)
 
+After changing backend or frontend source files, watch the application logs for the
+corresponding restart or Fast Refresh message. Changes to environment variables or
+dependencies require restarting or rebuilding the application container.
+
 ## Troubleshooting
+
+When diagnosing startup problems, check the application logs first and then verify
+that PostgreSQL and Redis are healthy. Most connection errors occur because a
+dependency is still starting, a port is already in use, or the local environment
+file contains an invalid value.
 
 ### Port conflicts
 
@@ -190,6 +237,8 @@ The Docker entrypoint script (`docker/entrypoint-dev.sh`) automatically performs
 6. **Start Application**: Launches the development server
 
 All seed operations are idempotent, so restarting containers won't create duplicate data.
+The first startup can take longer than later starts because images, dependencies,
+the Prisma client, and database migrations may all need to be prepared.
 
 ## Manual Database Operations
 
@@ -217,3 +266,5 @@ docker-compose -f docker-compose.dev.yml exec app npm run db:studio
 - Redis and PostgreSQL data persist across container restarts
 - Database bootstrapping happens automatically on every container start (idempotent)
 - Both frontend and backend run concurrently in the same container
+- The Compose service names are used for container-to-container communication
+- Use `down -v` only when you are comfortable deleting local development data
