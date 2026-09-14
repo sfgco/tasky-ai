@@ -101,7 +101,6 @@ For running services directly on the host:
    The development entrypoint waits for PostgreSQL and Redis, generates the Prisma client, applies migrations, seeds the database, and starts both application servers.
 
 5. Open the application:
-
    - Frontend: [http://localhost:3001](http://localhost:3001)
    - API: [http://localhost:3000](http://localhost:3000)
    - Health check: [http://localhost:3000/api/health](http://localhost:3000/api/health)
@@ -184,22 +183,22 @@ Set `APP_PORT` to publish a different host port. For a public deployment, put th
 
 `.env.example` is the source of truth for available settings. The most important variables are:
 
-| Variable | Purpose | Typical value |
-| --- | --- | --- |
-| `DATABASE_URL` | PostgreSQL connection string when running outside Compose | `postgresql://tasky:tasky@localhost:5432/tasky` |
-| `REDIS_HOST` / `REDIS_PORT` | Redis connection | `localhost` / `6379` |
-| `JWT_SECRET` | Access-token signing secret | Required secret |
-| `JWT_REFRESH_SECRET` | Refresh-token signing secret | Required secret |
-| `ENCRYPTION_KEY` | Encryption for sensitive values | Required 64-character hex value |
-| `FRONTEND_URL` | Frontend origin used by the backend | `http://localhost:3001` |
-| `CORS_ORIGIN` | Allowed browser origin | `http://localhost:3001` |
-| `NEXT_PUBLIC_API_BASE_URL` | API URL used by the frontend | `http://localhost:3000/api` |
-| `UPLOAD_DEST` | Local upload directory | `./uploads` |
-| `MAX_FILE_SIZE` | Maximum upload size in bytes | `10485760` |
-| `SMTP_*` | Outbound email configuration | Optional |
-| `AWS_*` | S3-compatible file storage | Optional |
-| `AI_ALLOWED_HOSTS` | Hostnames permitted for AI requests | Optional allowlist |
-| `AI_ALLOW_PRIVATE_ENDPOINTS` | Permit private-network AI endpoints | `false` |
+| Variable                     | Purpose                                                   | Typical value                                   |
+| ---------------------------- | --------------------------------------------------------- | ----------------------------------------------- |
+| `DATABASE_URL`               | PostgreSQL connection string when running outside Compose | `postgresql://tasky:tasky@localhost:5432/tasky` |
+| `REDIS_HOST` / `REDIS_PORT`  | Redis connection                                          | `localhost` / `6379`                            |
+| `JWT_SECRET`                 | Access-token signing secret                               | Required secret                                 |
+| `JWT_REFRESH_SECRET`         | Refresh-token signing secret                              | Required secret                                 |
+| `ENCRYPTION_KEY`             | Encryption for sensitive values                           | Required 64-character hex value                 |
+| `FRONTEND_URL`               | Frontend origin used by the backend                       | `http://localhost:3001`                         |
+| `CORS_ORIGIN`                | Allowed browser origin                                    | `http://localhost:3001`                         |
+| `NEXT_PUBLIC_API_BASE_URL`   | API URL used by the frontend                              | `http://localhost:3000/api`                     |
+| `UPLOAD_DEST`                | Local upload directory                                    | `./uploads`                                     |
+| `MAX_FILE_SIZE`              | Maximum upload size in bytes                              | `10485760`                                      |
+| `SMTP_*`                     | Outbound email configuration                              | Optional                                        |
+| `AWS_*`                      | S3-compatible file storage                                | Optional                                        |
+| `AI_ALLOWED_HOSTS`           | Hostnames permitted for AI requests                       | Optional allowlist                              |
+| `AI_ALLOW_PRIVATE_ENDPOINTS` | Permit private-network AI endpoints                       | `false`                                         |
 
 Compose overrides `DATABASE_URL` and `REDIS_HOST` with the internal service names. Keep secrets and deployment-specific values in `.env`; do not replace the Compose service names with `localhost` when the app runs inside Docker.
 
