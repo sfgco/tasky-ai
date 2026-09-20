@@ -26,20 +26,20 @@ test.describe("AI Chat Panel", () => {
   test("should open chat panel and show welcome screen", async ({ page }) => {
     await openChatPanel(page);
 
-    await expect(page.getByText("Hi! I'm your Taskosaur AI Assistant")).toBeVisible({
+    await expect(page.getByText("Hi! I'm your tasky AI Assistant")).toBeVisible({
       timeout: 5000,
     });
     await expect(page.getByText("Try these commands:")).toBeVisible();
   });
 
   test("should send a greeting and get AI response", async ({ page }) => {
-    await mockAIWithDone(page, "Hi! How can I help you with Taskosaur today?");
+    await mockAIWithDone(page, "Hi! How can I help you with tasky today?");
     await openChatPanel(page);
     await sendChatMessage(page, "Hello");
 
     await expect(page.getByText("Hello")).toBeVisible({ timeout: 5000 });
     await waitForAgentDone(page);
-    await expect(page.getByText("Hi! How can I help you with Taskosaur today?")).toBeVisible({
+    await expect(page.getByText("Hi! How can I help you with tasky today?")).toBeVisible({
       timeout: 10000,
     });
   });
@@ -52,7 +52,7 @@ test.describe("AI Chat Panel", () => {
     await expect(page.getByText("Hello there!")).toBeVisible({ timeout: 10000 });
 
     await page.getByRole("button", { name: "Clear" }).click();
-    await expect(page.getByText("Hi! I'm your Taskosaur AI Assistant")).toBeVisible({
+    await expect(page.getByText("Hi! I'm your tasky AI Assistant")).toBeVisible({
       timeout: 5000,
     });
   });

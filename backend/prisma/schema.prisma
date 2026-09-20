@@ -1357,7 +1357,7 @@ model TrelloSync {
   lastSyncError  String?     @map("last_sync_error") @db.Text
   cardsImported  Int         @default(0) @map("cards_imported")
 
-  // List → Status mappings: { trelloListId: taskosaurStatusId }
+  // List → Status mappings: { trelloListId: taskyStatusId }
   statusMappings Json? @map("status_mappings")
 
   createdBy String?  @map("created_by_id") @db.Uuid
@@ -1396,7 +1396,7 @@ model JiraSync {
   lastSyncError  String?     @map("last_sync_error") @db.Text
   issuesImported Int         @default(0) @map("issues_imported")
 
-  // Jira status → Taskosaur status mappings: { jiraStatusId: taskosaurStatusId }
+  // Jira status → tasky status mappings: { jiraStatusId: taskyStatusId }
   statusMappings Json? @map("status_mappings")
 
   createdBy String?  @map("created_by_id") @db.Uuid
